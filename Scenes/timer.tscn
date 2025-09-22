@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://pcycaju1hdau"]
+
+[ext_resource type="Script" uid="uid://cqlxapo4jd54p" path="res://Scripts/timer.gd" id="1_pvhx5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pvhx5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ycw00"]
+blend_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_ycw00"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hjkw"]
+font_size = 12
+
+[node name="timer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+script = ExtResource("1_pvhx5")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="grey_bg" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_pvhx5")
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 168.0
+offset_bottom = 168.0
+rotation = 3.14159
+color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_pvhx5")
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 168.0
+offset_bottom = 168.0
+rotation = 3.14159
+
+[node name="black_bg" type="ColorRect" parent="."]
+material = SubResource("CanvasItemMaterial_pvhx5")
+layout_mode = 0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+color = Color(0, 0, 0, 1)
+
+[node name="time_left" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_ycw00")
+layout_mode = 0
+offset_left = -64.0
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = 32.0
+text = "30:00"
+label_settings = SubResource("LabelSettings_ycw00")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="original_time" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_ycw00")
+layout_mode = 0
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 48.0
+text = "30:00"
+label_settings = SubResource("LabelSettings_4hjkw")
+horizontal_alignment = 1
+vertical_alignment = 1
