@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqj2wsnpqsluq"]
+
+[ext_resource type="PackedScene" uid="uid://pcycaju1hdau" path="res://Scenes/timer.tscn" id="1_11m8k"]
+[ext_resource type="Script" uid="uid://djbry8tnwe3xf" path="res://Scripts/page_timer.gd" id="1_cgogb"]
+[ext_resource type="Theme" uid="uid://jqwegfssy45" path="res://Resources/main_theme.tres" id="2_vceoi"]
+
+[node name="page_timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cgogb")
+
+[node name="timer" parent="." instance=ExtResource("1_11m8k")]
+offset_left = 576.0
+offset_top = 320.0
+offset_right = 832.0
+offset_bottom = 320.0
+scale = Vector2(2, 2)
+
+[node name="start_pause" type="Button" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 96.0
+offset_right = 656.0
+offset_bottom = 160.0
+theme = ExtResource("2_vceoi")
+text = "Start"
+
+[node name="reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 480.0
+offset_right = 656.0
+offset_bottom = 544.0
+theme = ExtResource("2_vceoi")
+text = "Reset"
+
+[connection signal="pressed" from="start_pause" to="." method="_on_start_pause_pressed"]
+[connection signal="pressed" from="reset" to="." method="_on_reset_pressed"]
