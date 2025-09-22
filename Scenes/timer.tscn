@@ -16,8 +16,12 @@ font_size = 12
 [node name="timer" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 256.0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 64.0
 script = ExtResource("1_pvhx5")
+time = 270
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
