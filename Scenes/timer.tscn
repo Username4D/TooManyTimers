@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://pcycaju1hdau"]
+[gd_scene load_steps=8 format=3 uid="uid://pcycaju1hdau"]
 
 [ext_resource type="Script" uid="uid://cqlxapo4jd54p" path="res://Scripts/timer.gd" id="1_pvhx5"]
+[ext_resource type="AudioStream" uid="uid://xyt8bjp28j7p" path="res://Assets/ringtone.wav" id="2_ycw00"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pvhx5"]
 
@@ -12,6 +13,9 @@ font_size = 28
 
 [sub_resource type="LabelSettings" id="LabelSettings_4hjkw"]
 font_size = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvhx5"]
+size = Vector2(40, 32)
 
 [node name="timer" type="Control"]
 layout_mode = 3
@@ -76,3 +80,25 @@ text = "30:00"
 label_settings = SubResource("LabelSettings_4hjkw")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="scrollfield_m" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scrollfield_m"]
+position = Vector2(-20, 0)
+shape = SubResource("RectangleShape2D_pvhx5")
+
+[node name="scrollfield_s" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scrollfield_s"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_pvhx5")
+
+[node name="jingle" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-64, -64)
+stream = ExtResource("2_ycw00")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="scrollfield_m" to="." method="_on_scrollfield_m_mouse_entered"]
+[connection signal="mouse_exited" from="scrollfield_m" to="." method="_on_scrollfield_m_mouse_exited"]
+[connection signal="mouse_entered" from="scrollfield_s" to="." method="_on_scrollfield_s_mouse_entered"]
+[connection signal="mouse_exited" from="scrollfield_s" to="." method="_on_scrollfield_s_mouse_exited"]
